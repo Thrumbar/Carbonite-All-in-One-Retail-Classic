@@ -478,7 +478,7 @@ function Nx.Travel:MakePath(tracking, srcMapId, srcX, srcY, dstMapId, dstX, dstY
             end
         elseif cont1 == 6 then
             -- Pandaria
-            if DoesSpellExist(15913) then
+            if DoesSpellExist(115913) then
                 self.FlyingMount = self.PandariaFlyName
             end
         elseif cont1 == 7 then

@@ -7863,6 +7863,22 @@ function Nx.Map:TargetOverlayUnexplored()
 end
 
 --------
+-- Locale-aware compressed texture path
+-- New structure: Conv/{locale}/{zonefolder}/{textureName}
+-- Fallback structure: Conv/{textureName} (backwards compatible)
+local function GetCompressedTexturePath(textureName, zoneFolder)
+    local basePath = "Interface\\AddOns\\Carbonite\\Gfx\\Map\\Conv\\"
+
+    -- Check if locale textures are enabled
+    if Nx.db and Nx.db.profile and Nx.db.profile.Map and Nx.db.profile.Map.UseLocaleTextures then
+        local locale = GetLocale()
+        return basePath .. locale .. "\\" .. zoneFolder .. "\\" .. textureName
+    end
+
+    return basePath .. textureName
+end
+
+--------
 -- Update the overlays
 
 function Nx.Map:UpdateOverlay (mapId, bright, noUnexplored)
@@ -8023,7 +8039,7 @@ function Nx.Map:UpdateOverlay (mapId, bright, noUnexplored)
                         nH = tonumber(nH)
                         if self:ClipFrameTL (f, wx, wy, nW * overlayZscale, nH * overlayZscale) then
                             f.texture:SetColorTexture (1, 0, 0, 0)
-                            f.texture:SetTexture ("Interface\\AddOns\\Carbonite\\Gfx\\Map\\Conv\\"..nName)
+                            f.texture:SetTexture (GetCompressedTexturePath(nName, txFolder))
                             f.texture:SetVertexColor (brt, brt, brt, alpha)
                         end
 

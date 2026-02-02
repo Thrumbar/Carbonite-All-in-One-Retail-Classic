@@ -769,6 +769,7 @@ local defaults = {
             InstanceGroupSize = 24,
             InstanceScale = 16,
             mapUpdate = .05,
+            UseLocaleTextures = false,  -- Use locale-specific compressed overlay textures (Conv/locale/)
         },
         MiniMap = {
             AboveIcons = false,
