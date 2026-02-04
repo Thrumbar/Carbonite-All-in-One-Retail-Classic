@@ -2254,7 +2254,7 @@ end
 
 -------------------------------------------------------------------------------
 -- TRACKER HIDING
--- Keeps Blizzard and 3rd-party trackers from reappearing when Carbonite is active.
+-- Keeps Blizzard tracker from reappearing when Carbonite is active.
 -------------------------------------------------------------------------------
 
 local function IsProtectedAndLockedDown(frame)
