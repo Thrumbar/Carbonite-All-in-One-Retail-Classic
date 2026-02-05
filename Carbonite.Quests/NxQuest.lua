@@ -1344,8 +1344,8 @@ local function QuestOptions()
                             get = function()
                                 return Nx.qdb.profile.QuestWatch.HideBlizz
                             end,
-                            set = function()
-                                Nx.qdb.profile.QuestWatch.HideBlizz = not Nx.qdb.profile.QuestWatch.HideBlizz
+                            set = function(info, val)
+                                Nx.qdb.profile.QuestWatch.HideBlizz = (val == true)
                                 if Nx.Quest and Nx.Quest.TrackerHider_Apply then
                                     Nx.Quest:TrackerHider_Apply()
                                 end
@@ -1366,7 +1366,7 @@ local function QuestOptions()
                             end,
                         },
                         qwtextsize = {
-                            order = 9,
+                            order = 8,
                             type = "range",
                             name = L["Object Text Length Before Linewrap"],
                             desc = L["Sets the number of characters before an objective wraps"],
@@ -1383,7 +1383,7 @@ local function QuestOptions()
                             end,
                         },
                         qsync = {
-                            order = 10,
+                            order = 9,
                             type = "toggle",
                             width = "full",
                             name = L["Sync Carbonite Quest Watch with Blizzard Quest Watch"],
@@ -1396,7 +1396,7 @@ local function QuestOptions()
                             end,
                         },
                         qrefresh = {
-                            order = 11,
+                            order = 10,
                             type = "range",
                             name = L["Watch Delay Time"],
                             desc = L["Sets the forced delay time of watch update in ms, performance toggle for systems that need it"],
@@ -1413,19 +1413,19 @@ local function QuestOptions()
                             end,
                         },
                         spacer = {
-                            order = 12,
+                            order = 11,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         spacer1 = {
-                            order = 13,
+                            order = 12,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         qwautonew = {
-                            order = 14,
+                            order = 13,
                             type = "toggle",
                             width = "full",
                             name = L["Auto Watch New Quests"],
@@ -1438,7 +1438,7 @@ local function QuestOptions()
                             end,
                         },
                         qwaddchanged = {
-                            order = 15,
+                            order = 14,
                             type = "toggle",
                             width = "full",
                             name = L["Auto Watch Changed Quests"],
@@ -1451,7 +1451,7 @@ local function QuestOptions()
                             end,
                         },
                         qwremovecomplete = {
-                            order = 16,
+                            order = 15,
                             type = "toggle",
                             width = "full",
                             name = L["Auto Remove Completed Quests"],
@@ -1464,7 +1464,7 @@ local function QuestOptions()
                             end,
                         },
                         qwshowdist = {
-                            order = 17,
+                            order = 16,
                             type = "toggle",
                             width = "full",
                             name = L["Show distance to quest objectives"],
@@ -1478,7 +1478,7 @@ local function QuestOptions()
                             end,
                         },
                         qwhideobject = {
-                            order = 18,
+                            order = 17,
                             type = "toggle",
                             width = "full",
                             name = L["Auto Hide Finished Objectives"],
@@ -1492,7 +1492,7 @@ local function QuestOptions()
                             end,
                         },
                         qwobjfirst = {
-                            order = 19,
+                            order = 18,
                             type = "toggle",
                             width = "full",
                             name = L["Show Objective Amount First"],
@@ -1506,13 +1506,13 @@ local function QuestOptions()
                             end,
                         },
                         spacer2 = {
-                            order = 20,
+                            order = 19,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         qwwatchscen = {
-                            order = 21,
+                            order = 20,
                             type = "toggle",
                             width = "full",
                             name = L["Watch Scenarios"],
@@ -1526,7 +1526,7 @@ local function QuestOptions()
                             end,
                         },
                         qwwatchach = {
-                            order = 22,
+                            order = 21,
                             type = "toggle",
                             width = "full",
                             name = L["Watch Achievements"],
@@ -1540,7 +1540,7 @@ local function QuestOptions()
                             end,
                         },
                         qwwatchtask = {
-                            order = 23,
+                            order = 22,
                             type = "toggle",
                             width = "full",
                             name = L["Watch Bonus Tasks"],
@@ -1554,7 +1554,7 @@ local function QuestOptions()
                             end,
                         },
                         qwwatchpbar = {
-                            order = 24,
+                            order = 23,
                             type = "toggle",
                             width = "full",
                             name = L["Show Progress Bar instead of Text"],
@@ -1568,7 +1568,7 @@ local function QuestOptions()
                             end,
                         },
                         qwwatchchal = {
-                            order = 25,
+                            order = 24,
                             type = "toggle",
                             width = "full",
                             name = L["Watch Challenge Modes"],
@@ -1582,7 +1582,7 @@ local function QuestOptions()
                             end,
                         },
                         qwwatchzone = {
-                            order = 26,
+                            order = 25,
                             type = "toggle",
                             width = "full",
                             name = L["Show Zone Achievement if Known"],
@@ -1596,13 +1596,13 @@ local function QuestOptions()
                             end,
                         },
                         spacer3 = {
-                            order = 27,
+                            order = 26,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         qwshowclose = {
-                            order = 28,
+                            order = 27,
                             type = "toggle",
                             width = "full",
                             name = L["Show Close Button"],
@@ -1616,7 +1616,7 @@ local function QuestOptions()
                             end,
                         },
                         qwfadeall = {
-                            order = 29,
+                            order = 28,
                             type = "toggle",
                             width = "full",
                             name = L["Fade Entire Window"],
@@ -1630,7 +1630,7 @@ local function QuestOptions()
                             end,
                         },
                         qwbgcol = {
-                            order = 30,
+                            order = 29,
                             type = "color",
                             width = "full",
                             name = L["Quest Watch Background Color"],
@@ -1650,7 +1650,7 @@ local function QuestOptions()
                             end,
                         },
                         qwcompletecol = {
-                            order = 31,
+                            order = 30,
                             type = "color",
                             width = "full",
                             name = L["Quest Complete Color"],
@@ -1670,7 +1670,7 @@ local function QuestOptions()
                             end,
                         },
                         qwicompletecol = {
-                            order = 32,
+                            order = 31,
                             type = "color",
                             width = "full",
                             name = L["Quest Incomplete Color"],
@@ -1690,7 +1690,7 @@ local function QuestOptions()
                             end,
                         },
                         qwocompletecol = {
-                            order = 33,
+                            order = 32,
                             type = "color",
                             width = "full",
                             name = L["Objective Complete Color"],
@@ -1710,7 +1710,7 @@ local function QuestOptions()
                             end,
                         },
                         qwoincompletecol = {
-                            order = 34,
+                            order = 33,
                             type = "color",
                             width = "full",
                             name = L["Objective Incomplete Color"],
@@ -1730,7 +1730,7 @@ local function QuestOptions()
                             end,
                         },
                         qwobjshade = {
-                            order = 35,
+                            order = 34,
                             type = "toggle",
                             width = "full",
                             name = L["Color Objective Based on Progress"],
@@ -1744,13 +1744,13 @@ local function QuestOptions()
                             end,
                         },
                         spacer4 = {
-                            order = 36,
+                            order = 35,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         qwiconsize = {
-                            order = 37,
+                            order = 36,
                             type = "range",
                             name = L["Clickable Icon Size (0 disables)"],
                             desc = L["If a quest has an item to be used, will draw it beside the quest at the size defined here"],
@@ -1767,13 +1767,13 @@ local function QuestOptions()
                             end,
                         },
                         spacer5 = {
-                            order = 38,
+                            order = 37,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         qwitemalpha = {
-                            order = 39,
+                            order = 38,
                             type = "color",
                             width = "full",
                             name = L["Item Transparency"],
@@ -1793,13 +1793,13 @@ local function QuestOptions()
                             end,
                         },
                         spacer6 = {
-                            order = 40,
+                            order = 39,
                             type = "description",
                             width = "full",
                             name = " ",
                         },
                         QuestWatchFont = {
-                            order = 41,
+                            order = 40,
                             type = "select",
                             name = L["Quest Watch Font"],
                             desc = L["Sets the font to be used on the quest watch window"],
@@ -1822,7 +1822,7 @@ local function QuestOptions()
                             end,
                         },
                         QuestWatchFontSize = {
-                            order = 42,
+                            order = 41,
                             type = "range",
                             name = L["Watch Font Size"],
                             desc = L["Sets the size of the quest watch font"],
@@ -1839,7 +1839,7 @@ local function QuestOptions()
                             end,
                         },
                         QuestWatchFontSpacing = {
-                            order = 43,
+                            order = 42,
                             type = "range",
                             name = L["Watch Font Spacing"],
                             desc = L["Sets the spacing of the quest watch font"],
@@ -2253,158 +2253,6 @@ local function QuestOptions()
 end
 
 -------------------------------------------------------------------------------
--- TRACKER HIDING
--- Keeps Blizzard tracker from reappearing when Carbonite is active.
--------------------------------------------------------------------------------
-
-local function IsProtectedAndLockedDown(frame)
-    return frame and frame.IsProtected and frame:IsProtected() and InCombatLockdown()
-end
-
-function Nx.Quest:TrackerHider_Init()
-    if self._trackerHider then
-        return
-    end
-
-    local hiddenParent = CreateFrame("Frame", nil, UIParent)
-    hiddenParent:Hide()
-
-    self._trackerHider = {
-        hiddenParent = hiddenParent,
-        pending = false,
-        hooked = {},
-    }
-
-    local driver = CreateFrame("Frame", nil, UIParent)
-    self._trackerHider.driver = driver
-
-    driver:RegisterEvent("PLAYER_ENTERING_WORLD")
-    driver:RegisterEvent("PLAYER_LOGIN")
-    driver:RegisterEvent("PLAYER_REGEN_ENABLED")
-    driver:RegisterEvent("ADDON_LOADED")
-
-    driver:SetScript("OnEvent", function(_, event)
-        if event == "PLAYER_REGEN_ENABLED" and not self._trackerHider.pending then
-            return
-        end
-        self._trackerHider.pending = false
-        self:TrackerHider_Apply()
-    end)
-end
-
-function Nx.Quest:TrackerHider_IsQuestWatchVisible()
-    local profile = Nx.qdb and Nx.qdb.profile and Nx.qdb.profile.QuestWatch
-    local watch = self.Watch
-    if not profile or not watch or not watch.Opened or not watch.Win or not watch.Win.Frm then
-        return false
-    end
-
-    -- Only hide trackers while Carbonite's Quest Watch window is actually visible.
-    if profile.Hide then
-        return false
-    end
-    if watch.Win.RaidHid then
-        return false
-    end
-    if not watch.Win.Frm:IsShown() then
-        return false
-    end
-
-    -- Treat minimized window as "not visible" so Blizzard's tracker can show.
-    if watch.Win.IsSizeMin and watch.Win:IsSizeMin() then
-        return false
-    end
-
-    return true
-end
-
-function Nx.Quest:TrackerHider_ShouldHide(frameName)
-    local profile = Nx.qdb and Nx.qdb.profile and Nx.qdb.profile.QuestWatch
-    if not profile then
-        return false
-    end
-
-    local watchVisible = self:TrackerHider_IsQuestWatchVisible()
-
-    if frameName == "ObjectiveTrackerFrame" or frameName == "WatchFrame" then
-        return profile.HideBlizz == true and watchVisible
-    end
-
-
-    return false
-end
-
-
-function Nx.Quest:TrackerHider_SetVisible(frame, visible)
-    if not frame or not self._trackerHider then
-        return
-    end
-
-    if IsProtectedAndLockedDown(frame) then
-        self._trackerHider.pending = true
-        return
-    end
-
-    if visible then
-        frame:SetParent(UIParent)
-        frame:SetAlpha(1)
-        if frame.EnableMouse then
-            frame:EnableMouse(true)
-        end
-        frame:Show()
-        return
-    end
-
-    frame:SetParent(self._trackerHider.hiddenParent)
-    frame:SetAlpha(0)
-    if frame.EnableMouse then
-        frame:EnableMouse(false)
-    end
-    frame:Hide()
-end
-
-function Nx.Quest:TrackerHider_HookFrame(frameName)
-    local h = self._trackerHider
-    if not h or h.hooked[frameName] then
-        return
-    end
-
-    local frame = _G[frameName]
-    if not frame or not frame.HookScript then
-        return
-    end
-
-    h.hooked[frameName] = true
-    frame:HookScript("OnShow", function(f)
-        if self:TrackerHider_ShouldHide(frameName) then
-            self:TrackerHider_SetVisible(f, false)
-        end
-    end)
-end
-
-function Nx.Quest:TrackerHider_Apply()
-    if not self._trackerHider then
-        return
-    end
-
-    self:TrackerHider_HookFrame("ObjectiveTrackerFrame")
-    self:TrackerHider_HookFrame("WatchFrame")
-    local targets = {
-        "ObjectiveTrackerFrame",
-        "WatchFrame",
-    }
-
-    for i = 1, #targets do
-        local name = targets[i]
-        local frame = _G[name]
-        if frame then
-            local hide = self:TrackerHider_ShouldHide(name)
-            self:TrackerHider_SetVisible(frame, not hide)
-        end
-    end
-end
-
--------------------------------------------------------------------------------
 -- MODULE INITIALIZATION
 -------------------------------------------------------------------------------
 
@@ -2645,8 +2493,6 @@ function CarboniteQuest:OnInitialize()
     if Nx.qdb.profile.Quest.Enable then
         Nx.Quest:HideUIPanel (_G["QuestMapFrame"])
     end
-    Nx.Quest:TrackerHider_Init()
-    Nx.Quest:TrackerHider_Apply()
     CarboniteQuest:RegisterComm("carbmodule",Nx.Quest.OnChat_msg_addon)
     Nx:AddToConfig("Quest Module",QuestOptions(),L["Quest Module"])
     Nx.Quest:SetCols()
@@ -2794,21 +2640,163 @@ end
 -- Initialize the quest system
 -- Sets up tracking tables, hooks, and windows
 --
+-------------------------------------------------------------------------------
+-- BLIZZARD TRACKER HIDING (Retail + Classic + Anniversary + MoP Classic)
+-- Checked = hide; Unchecked = show.
+-------------------------------------------------------------------------------
+
+local NX_TRACKER_FRAMES = {
+    "ObjectiveTrackerFrame", -- Retail / modern
+    "WatchFrame",            -- Classic / MoP Classic / Anniversary
+    "QuestWatchFrame",       -- Fallback (some UI variants)
+}
+
+local function NxTracker_IsProtectedAndLockedDown(frame)
+    return frame and frame.IsProtected and frame:IsProtected() and InCombatLockdown()
+end
+
+function Nx.Quest:TrackerHider_Init()
+    if self._trackerHider then
+        return
+    end
+
+    local hiddenParent = CreateFrame("Frame", nil, UIParent)
+    hiddenParent:Hide()
+
+    self._trackerHider = {
+        hiddenParent = hiddenParent,
+        hooked = {},
+        orig = {},
+        pending = false,
+    }
+
+    local driver = CreateFrame("Frame", nil, UIParent)
+    self._trackerHider.driver = driver
+
+    driver:RegisterEvent("PLAYER_LOGIN")
+    driver:RegisterEvent("PLAYER_ENTERING_WORLD")
+    driver:RegisterEvent("PLAYER_REGEN_ENABLED")
+    driver:RegisterEvent("ADDON_LOADED")
+
+    driver:SetScript("OnEvent", function(_, event)
+        if event == "PLAYER_REGEN_ENABLED" and not self._trackerHider.pending then
+            return
+        end
+        self._trackerHider.pending = false
+        self:TrackerHider_Apply()
+    end)
+end
+
+function Nx.Quest:TrackerHider_ShouldHide()
+    local qProfile = Nx.qdb and Nx.qdb.profile
+    local enabled = qProfile and qProfile.Quest and qProfile.Quest.Enable
+    local watchProfile = qProfile and qProfile.QuestWatch
+    return enabled and watchProfile and watchProfile.HideBlizz == true
+end
+
+function Nx.Quest:TrackerHider_CaptureOriginal(frame, key)
+    local h = self._trackerHider
+    if not h or h.orig[key] then
+        return
+    end
+
+    local mouseEnabled = true
+    if frame.IsMouseEnabled then
+        mouseEnabled = frame:IsMouseEnabled()
+    end
+
+    h.orig[key] = {
+        parent = frame:GetParent(),
+        alpha = frame:GetAlpha(),
+        mouseEnabled = mouseEnabled,
+    }
+end
+
+function Nx.Quest:TrackerHider_SetVisible(frame, key, visible)
+    local h = self._trackerHider
+    if not h or not frame then
+        return
+    end
+
+    if NxTracker_IsProtectedAndLockedDown(frame) then
+        h.pending = true
+        return
+    end
+
+    self:TrackerHider_CaptureOriginal(frame, key)
+    local orig = h.orig[key]
+
+    if visible then
+        frame:SetParent((orig and orig.parent) or UIParent)
+        frame:SetAlpha((orig and orig.alpha) or 1)
+        if frame.EnableMouse then
+            frame:EnableMouse(orig and orig.mouseEnabled ~= false or true)
+        end
+        frame:Show()
+        return
+    end
+
+    frame:SetParent(h.hiddenParent)
+    frame:SetAlpha(0)
+    if frame.EnableMouse then
+        frame:EnableMouse(false)
+    end
+    frame:Hide()
+end
+
+function Nx.Quest:TrackerHider_HookFrame(name)
+    local h = self._trackerHider
+    if not h or h.hooked[name] then
+        return
+    end
+
+    local frame = _G[name]
+    if not frame or not frame.HookScript then
+        return
+    end
+
+    h.hooked[name] = true
+    frame:HookScript("OnShow", function(f)
+        if self:TrackerHider_ShouldHide() then
+            self:TrackerHider_SetVisible(f, name, false)
+        end
+    end)
+end
+
+function Nx.Quest:TrackerHider_Apply()
+    if not self._trackerHider then
+        self:TrackerHider_Init()
+    end
+
+    local hide = self:TrackerHider_ShouldHide()
+
+    for i = 1, #NX_TRACKER_FRAMES do
+        local name = NX_TRACKER_FRAMES[i]
+        local frame = _G[name]
+        if frame then
+            self:TrackerHider_HookFrame(name)
+            self:TrackerHider_SetVisible(frame, name, not hide)
+        end
+    end
+end
+
 function Nx.Quest:Init()
 
-    if WatchFrame then
-        WatchFrame:Hide()
-    elseif QuestWatchFrame then
-        QuestWatchFrame:Hide()
-    end
 
     self.Enabled = Nx.qdb.profile.Quest.Enable
     if not self.Enabled then
 
 --        Nx.Quest = nil
         Nx.Quests = nil    -- Data
+        -- Ensure the Blizzard tracker is not left hidden when the quest module is disabled.
+        self:TrackerHider_Apply()
+
         return
     end
+
+    -- Keep Blizzard tracker visibility in sync with the profile toggle (cross-version safe).
+    self:TrackerHider_Apply()
+
 
     self.GOpts = Nx.db.profile
 
@@ -3750,9 +3738,25 @@ function Nx.Quest:SetCols()
     Nx.Quest.Cols["incompColor"] = Nx.Util_str2colstr (Nx.qdb.profile.QuestWatch.IncompleteColor)
     Nx.Quest.Cols["oCompColor"] = Nx.Util_str2colstr (Nx.qdb.profile.QuestWatch.OCompleteColor)
     Nx.Quest.Cols["oIncompColor"] = Nx.Util_str2colstr (Nx.qdb.profile.QuestWatch.OIncompleteColor)
-    Nx.Quest.Cols["BGColorR"], Nx.Quest.Cols["BGColorG"], Nx.Quest.Cols["BGColorB"], Nx.Quest.Cols["BGColorA"] =  Nx.Util_str2rgba (Nx.qdb.profile.QuestWatch.BGColor)
-    Nx.Quest.Cols["trkR"], Nx.Quest.Cols["trkG"], Nx.Quest.Cols["trkB"], Nx.Quest.Cols["trkA"] =  Nx.Util_str2rgba (Nx.qdb.profile.Quest.MapWatchAreaTrackColor)
-    Nx.Quest.Cols["hovR"], Nx.Quest.Cols["hovG"], Nx.Quest.Cols["hovB"], Nx.Quest.Cols["hovA"] =  Nx.Util_str2rgba (Nx.qdb.profile.Quest.MapWatchAreaHoverColor)
+    do
+        local r, g, b, a = Nx.Util_str2rgba (Nx.qdb.profile.QuestWatch.BGColor)
+        Nx.Quest.Cols["BGColorR"] = tonumber(r) or 0
+        Nx.Quest.Cols["BGColorG"] = tonumber(g) or 0
+        Nx.Quest.Cols["BGColorB"] = tonumber(b) or 0
+        Nx.Quest.Cols["BGColorA"] = tonumber(a) or .4
+
+        r, g, b, a = Nx.Util_str2rgba (Nx.qdb.profile.Quest.MapWatchAreaTrackColor)
+        Nx.Quest.Cols["trkR"] = tonumber(r) or 1
+        Nx.Quest.Cols["trkG"] = tonumber(g) or 1
+        Nx.Quest.Cols["trkB"] = tonumber(b) or 1
+        Nx.Quest.Cols["trkA"] = tonumber(a) or 1
+
+        r, g, b, a = Nx.Util_str2rgba (Nx.qdb.profile.Quest.MapWatchAreaHoverColor)
+        Nx.Quest.Cols["hovR"] = tonumber(r) or 1
+        Nx.Quest.Cols["hovG"] = tonumber(g) or 1
+        Nx.Quest.Cols["hovB"] = tonumber(b) or 1
+        Nx.Quest.Cols["hovA"] = tonumber(a) or 1
+    end
 end
 
 function Nx.Quest:CheckQuestSE (q, n)
@@ -7562,18 +7566,12 @@ function CarboniteQuest:OnQuestUpdate (event, ...)
     end
 
 --    Nx.prtD ("OnQuestUpdate %s Done", event)
-    if WatchFrame then
-        WatchFrame:Hide()
-    elseif QuestWatchFrame then
-        QuestWatchFrame:Hide()
+    -- Keep Blizzard tracker visibility in sync with the profile toggle.
+    if Nx.Quest and Nx.Quest.TrackerHider_Apply then
+        Nx.Quest:TrackerHider_Apply()
     end
 end
 
-if WatchFrame then
-    hooksecurefunc(WatchFrame, 'Show', function (f) f:Hide() end);
-elseif QuestWatchFrame then
-    hooksecurefunc("QuestWatch_Update", function (...) QuestWatchFrame:Hide(); end);
-end
 
 Nx.Quest.TrackedAchievements = {}
 function CarboniteQuest:OnTrackedAchievementsUpdate (event, ...)
@@ -9389,19 +9387,6 @@ function Nx.Quest.Watch:Open()
 
     local win = Nx.Window:Create ("NxQuestWatch", nil, nil, nil, 1, border)
     self.Win = win
-    if win and win.Frm and not win.Frm._NxTrackerHiderHooked then
-        win.Frm._NxTrackerHiderHooked = true
-        win.Frm:HookScript("OnShow", function()
-            if Nx and Nx.Quest and Nx.Quest.TrackerHider_Apply then
-                Nx.Quest:TrackerHider_Apply()
-            end
-        end)
-        win.Frm:HookScript("OnHide", function()
-            if Nx and Nx.Quest and Nx.Quest.TrackerHider_Apply then
-                Nx.Quest:TrackerHider_Apply()
-            end
-        end)
-    end
 
     win:InitLayoutData (nil, -.80, -.35, -.2, -.1)
 
@@ -9657,9 +9642,6 @@ end
 
 function Nx.Quest.Watch:OnWin (typ)
     self:Update()
-    if Nx.Quest and Nx.Quest.TrackerHider_Apply then
-        Nx.Quest:TrackerHider_Apply()
-    end
 end
 
 -------------------------------------------------------------------------------
@@ -10107,9 +10089,7 @@ function Nx.Quest.Watch:UpdateList()
             self.FlashColor = (self.FlashColor + 1) % 2
             list:SetItemFrameScaleAlpha (itemScale, Nx.Util_str2a (itemAlpha))
             if hideBlizz and not InCombatLockdown() then
-                if Nx.Quest and Nx.Quest.TrackerHider_Apply then
-                    Nx.Quest:TrackerHider_Apply()
-                end
+                --ObjectiveTrackerFrame:Hide()        -- Hide Blizzard's
             end
             if Nx.Quest.AltView then
                 local curnum = 1
